@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Latest CDN production Javascript and CSS: 2.6.0 -->
+  <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+  <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+  <!-- Theme file: Customize or replace this file if you want to override our default styles -->
+  <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.6.0/css/okta-theme.css" type="text/css" rel="stylesheet"/>
+
+  <title>Okta Sign-In Widget example</title>
+</head>
+<body>
+  <div id="widget"></div>
+
+  <script>
+    var signIn = new OktaSignIn({baseUrl: 'https://acme.okta.com'});
+
+    signIn.renderEl(
+      {
+        el: '#widget'
+      },
+      function success(res) {
+        if (res.status === 'SUCCESS') {
+          console.log('Do something with this sessionToken', res.session.token);
+        }
+      },
+      function error(err) {
+        console.log('Handle error:', err);
+      })
+  </script>
+
+</body>
+</html>
